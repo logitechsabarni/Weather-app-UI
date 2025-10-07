@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App UI</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; transition: background 0.3s;
+    }
+    body.light { background: linear-gradient(to bottom, #a2cffe, #f2f9ff); color: #333; }
+    body.dark { background: linear-gradient(to bottom, #2c3e50, #34495e); color: #eee; }
+    
+    .weather-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px; padding: 30px 20px; text-align: center;
+      width: 90%; max-width: 350px; box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s, background 0.3s, color 0.3s;
+    }
+    body.dark .weather-card { background: rgba(44, 62, 80, 0.85); color: #eee; }
+
+    .weather-card:hover { transform: scale(1.05); }
+
+    .weather-card img { width: 100px; margin: 10px 0; }
+    .temperature { font-size: 48px; font-weight: bold; margin: 10px 0; }
+    .city { font-size: 24px; margin-bottom: 5px; }
+    .description { font-size: 18px; color: inherit; opacity: 0.8; }
+
+    .toggle-btn {
+      margin-top: 15px; padding: 8px 15px;
+      border: none; border-radius: 8px; cursor: pointer;
+      background-color: #1d3557; color: white; font-size: 14px;
+      transition: background 0.3s;
+    }
+    .toggle-btn:hover { background-color: #457b9d; }
+
+    @media(max-width: 400px){ .temperature { font-size: 36px; } .city { font-size: 20px; } }
+  </style>
+</head>
+<body class="light">
+  <div class="weather-card">
+    <h2 class="city">City Name</h2>
+    <img src="https://via.placeholder.com/100" alt="Weather Icon">
+    <div class="temperature">25°C</div>
+    <div class="description">Sunny</div>
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Dark/Light</button>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
+    }
+  </script>
+</body>
+</html>
